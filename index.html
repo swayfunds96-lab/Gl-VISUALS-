@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GL VISUALS | Creative Studio</title>
+
+    <meta name="description" content="GL VISUALS creates professional graphic designs, brand identities, photo edits and visual content for businesses.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #0a0a0b;
+            color: #f5f5f5;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(10, 10, 11, 0.95);
+            border-bottom: 1px solid #242424;
+            backdrop-filter: blur(12px);
+        }
+
+        nav {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #d7b56d;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            font-size: 13px;
+            color: #c5c5c5;
+        }
+
+        .nav-links a:hover {
+            color: #d7b56d;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: #d7b56d;
+            color: #111;
+            padding: 12px 19px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .contact-button:hover {
+            background: #f0d69b;
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            min-height: 570px;
+            display: flex;
+            align-items: center;
+            padding: 85px 0;
+            background:
+                radial-gradient(
+                    ellipse at 80% 30%,
+                    rgba(215, 181, 109, 0.12),
+                    transparent 48%
+                ),
+                #0a0a0b;
+        }
+
+        .eyebrow {
+            color: #d7b56d;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 1.08;
+            letter-spacing: -3px;
+            max-width: 750px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #d7b56d;
+        }
+
+        .hero p {
+            max-width: 520px;
+            color: #aaa;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-wrap: wrap;
+        }
+
+        .text-link {
+            font-size: 13px;
+            border-bottom: 1px solid #777;
+            padding-bottom: 4px;
+        }
+
+        section {
+            padding: 85px 0;
+            border-top: 1px solid #202020;
+        }
+
+        .section-label {
+            color: #d7b56d;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(30px, 5vw, 45px);
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+
+        .section-description {
+            max-width: 570px;
+            color: #a5a5a5;
+            margin-bottom: 40px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: start;
+        }
+
+        .about-grid p {
+            color: #aaa;
+            font-size: 15px;
+        }
+
+        .about-note {
+            border-left: 2px solid #d7b56d;
+            padding: 15px 20px;
+            background: #121212;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .service-card {
+            padding: 27px 22px;
+            background: #111112;
+            border: 1px solid #272727;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            border-color: #d7b56d;
+            transform: translateY(-4px);
+        }
+
+        .service-number {
+            color: #d7b56d;
+            font-size: 12px;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 17px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: #111112;
+            border: 1px solid #272727;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .project-image {
+            min-height: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at 50% 40%,
+                    #29251c,
+                    #111112 70%
+                );
+        }
+
+        .project-image span {
+            color: #d7b56d;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .project-info {
+            padding: 20px;
+        }
+
+        .project-info h3 {
+            font-size: 17px;
+            margin-bottom: 5px;
+        }
+
+        .project-info p {
+            color: #999;
+            font-size: 13px;
+        }
+
+        .portfolio-note {
+            color: #999;
+            font-size: 12px;
+            margin-top: 22px;
+        }
+
+        .contact-section {
+            text-align: center;
+            background:
+                radial-gradient(
+                    ellipse at center,
+                    rgba(215, 181, 109, 0.09),
+                    transparent 65%
+                );
+        }
+
+        .contact-section .section-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            padding: 25px 0;
+            border-top: 1px solid #252525;
+            color: #888;
+            font-size: 12px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                min-height: 70px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 480px;
+                padding: 65px 0;
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px;
+            }
+
+            section {
+                padding: 65px 0;
+            }
+
+            .about-grid,
+            .services-grid,
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                min-height: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a class="logo" href="#home">
+                    GL <span>VISUALS.</span>
+                </a>
+
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                </div>
+
+                <a class="contact-button"
+                   href="#contact">
+                    Let's Talk ↗
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="hero" id="home">
+            <div class="container">
+                <p class="eyebrow">
+                    Independent Creative Studio
+                </p>
+
+                <h1>
+                    Visuals that make
+                    <span>brands stand out.</span>
+                </h1>
+
+                <p>
+                    I help businesses present their products,
+                    communicate their value and capture attention
+                    through thoughtful visual design.
+                </p>
+
+                <div class="hero-actions">
+                    <a class="contact-button"
+                       href="#portfolio">
+                        Explore My Work ↘
+                    </a>
+
+                    <a class="text-link"
+                       href="#services">
+                        Discover My Services
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div>
+                        <p class="section-label">About the studio</p>
+
+                        <h2 class="section-title">
+                            Creative thinking.
+                            <br>
+                            Intentional design.
+                        </h2>
+                    </div>
+
+                    <div>
+                        <p>
+                            I'm the creative behind GL VISUALS.
+                            My focus is helping brands communicate
+                            clearly through professional graphics,
+                            visual storytelling and creative content.
+                        </p>
+
+                        <br>
+
+                        <p class="about-note">
+                            Every design should do more than look
+                            good. It should help communicate a message
+                            and give people a reason to pay attention.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <p class="section-label">What I do</p>
+
+                <h2 class="section-title">
+                    Creative services.
+                </h2>
+
+                <p class="section-description">
+                    Visual solutions for businesses, brands
+                    and individuals looking to present themselves
+                    professionally.
+                </p>
+
+                <div class="services-grid">
+
+                    <article class="service-card">
+                        <p class="service-number">01 / DESIGN</p>
+                        <h3>Graphic Design</h3>
+                        <p>
+                            Promotional flyers, social media
+                            creatives and marketing materials.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <p class="service-number">02 / IDENTITY</p>
+                        <h3>Brand Identity</h3>
+                        <p>
+                            Logo design and visual identity
+                            concepts that give brands consistency.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <p class="service-number">03 / PHOTOGRAPHY</p>
+                        <h3>Photo Editing</h3>
+                        <p>
+                            Portrait retouching, colour grading
+                            and polished photographic visuals.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <p class="service-number">04 / MOTION</p>
+                        <h3>Video Editing</h3>
+                        <p>
+                            Engaging visual content for social
+                            media and brand promotion.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <p class="service-number">05 / VISUALS</p>
+                        <h3>Product Promotion</h3>
+                        <p>
+                            Product-focused creative designs
+                            for online business marketing.
+                        </p>
+                    </article>
+
+                    <article class="service-card">
+                        <p class="service-number">06 / CREATIVE</p>
+                        <h3>Creative Direction</h3>
+                        <p>
+                            Visual concepts that help communicate
+                            a brand's personality and message.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <p class="section-label">Selected projects</p>
+
+                <h2 class="section-title">
+                    Work that speaks.
+                </h2>
+
+                <p class="section-description">
+                    A selection of creative categories from
+                    the GL VISUALS studio.
+                </p>
+
+                <div class="portfolio-grid">
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span>Food & Catering</span>
+                        </div>
+
+                        <div class="project-info">
+                            <h3>Food Brand Promotion</h3>
+                            <p>
+                                Commercial graphics and food
+                                marketing visuals.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span>Brand Identity</span>
+                        </div>
+
+                        <div class="project-info">
+                            <h3>Branding & Identity</h3>
+                            <p>
+                                Visual identity and logo
+                                design projects.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span>Product Advertising</span>
+                        </div>
+
+                        <div class="project-info">
+                            <h3>Product Campaigns</h3>
+                            <p>
+                                Promotional designs for
+                                products and small businesses.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-image">
+                            <span>Photo Editing</span>
+                        </div>
+
+                        <div class="project-info">
+                            <h3>Portrait & Visual Editing</h3>
+                            <p>
+                                Portrait retouching and
+                                cinematic colour grading.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="portfolio-note">
+                    Project preview placeholders — actual work
+                    will be added as the portfolio develops.
+                </p>
+            </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <p class="section-label">
+                    Have a project in mind?
+                </p>
+
+                <h2 class="section-title">
+                    Let's create something
+                    <br>
+                    <span style="color:#d7b56d">
+                        worth remembering.
+                    </span>
+                </h2>
+
+                <p class="section-description">
+                    Need promotional graphics, branding or
+                    creative visual content? Let's discuss
+                    what your brand needs.
+                </p>
+
+                <!-- Replace YOURNUMBER with your WhatsApp number -->
+
+                <a class="contact-button"
+                   href="https://wa.me/YOURNUMBER">
+                    Contact GL VISUALS on WhatsApp ↗
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>© 2026 GL VISUALS. All rights reserved.</p>
+            <p>Creative visuals. Clear communication.</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
